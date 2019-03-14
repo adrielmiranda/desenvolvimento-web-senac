@@ -1,16 +1,34 @@
-package modelo;
+package com.github.braully.dws.modelo;
+
 import java.util.Date;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Cliente {
     
+    @Id 
+    @GeneratedValue
+    Integer id ;
+    @Basic
     String nome;
+    @Basic
     String cpf;
-    Date dataDenascimento;
+    @Basic
+    Date dataNascimento;
+    @Basic
     String endereco;
+    @Basic
     String cidade;
-    String estado;
+    @Basic
+    Estado estado;
+    @Basic
     Boolean ativo;
 
-    public Cliente() {}
+    public Cliente() {
+    }
 
     public String getNome() {
         return nome;
@@ -28,12 +46,12 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    public Date getDataDenascimento() {
-        return dataDenascimento;
+    public Date getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setDataDenascimento(Date dataDenascimento) {
-        this.dataDenascimento = dataDenascimento;
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getEndereco() {
@@ -52,11 +70,11 @@ public class Cliente {
         this.cidade = cidade;
     }
 
-    public String getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
@@ -67,9 +85,10 @@ public class Cliente {
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
     }
-    
-  
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "nome=" + nome + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", endereco=" + endereco + ", cidade=" + cidade + ", estado=" + estado + ", ativo=" + ativo + '}';
+    }
+
 }
